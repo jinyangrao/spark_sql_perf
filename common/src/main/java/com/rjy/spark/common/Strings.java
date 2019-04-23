@@ -27,4 +27,6 @@ public class Strings {
 
     public static boolean TRUE = true;
     public static boolean FALSE = false;
+
+    public static String EMPTY_STRING = "";
 }
