@@ -11,8 +11,8 @@ actions:
     job.perfilepersession: false | true
     job.metricsmode: simple | rich
     job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
-    job.generateresult: true
-    job.verifiedresult: true
+    job.generateresult: true | false
+    job.verifiedresult: true | false
     job.verifiedpath: user/jirao/result/orginalresult.out
     jdbc.current.time: 720
     jdbc.current.client: '[ "user1": {"username": "test1", "password": "btd"},

@@ -1,9 +1,9 @@
-package com.rjy.spark.client.conf;
+package com.rjy.spark.common;
 
 public class EnumUtils {
 
     // enmu store here
-    public static enum ActionMode {
+    public static enum Action {
         SQL, BATCH;
     }
 
@@ -12,6 +12,6 @@ public class EnumUtils {
     }
 
     public static enum MetricsMode {
-        execution, rich;
+        SIMPLE, RICH;
     }
 }

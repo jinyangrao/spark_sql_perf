@@ -24,4 +24,7 @@ public class Strings {
     public static String JOB_VERIFIED_PATH = "job.verifiedpath";
     public static String JDBC_CURRENT_TIME = "jdbc.current.time";
     public static String JDBC_CURRENT_CLIENT = "jdbc.current.client";
+
+    public static boolean TRUE = true;
+    public static boolean FALSE = false;
 }
