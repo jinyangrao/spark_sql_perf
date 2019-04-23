@@ -7,13 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="assembly" />
+        <module name="common" />
         <module name="core" />
         <module name="jdbc-client" />
         <module name="test-reporter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="client" target="1.7" />
+      <module name="client" target="1.5" />
+      <module name="perf_client" target="1.5" />
+      <module name="reporter" target="1.5" />
       <module name="spark_jdbc_job" target="1.7" />
       <module name="spark_jdbc_tool" target="1.7" />
       <module name="spark_matric_tool" target="1.5" />

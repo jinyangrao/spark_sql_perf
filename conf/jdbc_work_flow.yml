@@ -3,20 +3,21 @@ actions:
 - desc: execute tpch cases
   action: sql | batch
   query: tpch
-  conf:
-    treadmode: single | current
-    metricsmode: execution | rich
-    metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
-    genresult: true
-    verifiedresult: true
-    verifiedpath: user/jirao/result/orginalresult.out
-    jdbccurrentclient: [ user1: {username: 'test1', password: 'btd'},
-                         user1: {username: 'test2', password: 'btd'},
-                         user1: {username: 'test3', password: 'btd'},
-                         user1: {username: 'test4', password: 'btd'},
-                         user1: {username: 'test5', password: 'btd'},
-                         user1: {username: 'test6', password: 'btd'}]
-    jdbccurrenttime: 720
-
-
-
+  jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
+  treadmode: single | current
+  jobconf:
+    job.statement.beforeall: "create testdb; use testdb; show databases;"
+    job.statement.afterall: "drop database testdb cascade;"
+    job.perfilepersession: false | true
+    job.metricsmode: simple | rich
+    job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
+    job.generateresult: true
+    job.verifiedresult: true
+    job.verifiedpath: user/jirao/result/orginalresult.out
+    jdbc.current.time: 720
+    jdbc.current.client: '[ "user1": {"username": "test1", "password": "btd"},
+                          [ "user1": {"username": "test1", "password": "btd"},
+                          [ "user1": {"username": "test1", "password": "btd"},
+                          [ "user1": {"username": "test1", "password": "btd"},
+                          [ "user1": {"username": "test1", "password": "btd"},
+                          [ "user1": {"username": "test1", "password": "btd"}'

@@ -1,4 +1,4 @@
-package com.rjy.spark;
+package com.rjy.spark.client;
 
 
 public class JobInstance {

@@ -1,4 +1,4 @@
-package com.rjy.spark.conf;
+package com.rjy.spark.client.conf;
 
 public class EnumUtils {
 
