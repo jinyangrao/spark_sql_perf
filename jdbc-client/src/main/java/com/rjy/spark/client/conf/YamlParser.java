@@ -28,7 +28,8 @@ public class YamlParser {
         this.yamlName = fileName;
     }
 
-    public Map<String, String> parse() {
+
+    public Map parse() {
 
         Map properties = null;
 

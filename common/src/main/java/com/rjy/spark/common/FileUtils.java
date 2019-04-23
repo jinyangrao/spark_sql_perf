@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 
 public class FileUtils {
 
+    private static final Logger logger = LoggerUtils.getLogger(FileUtils.class);
+
     public static File openFile(String fileName) {
 
         String filePath = getFilePathV1(fileName);
@@ -21,6 +23,8 @@ public class FileUtils {
         String path = System.getProperty("user.dir");
 
         String filePath = path + "/conf/" + fileName;
+
+        logger.info("get file in path: " + filePath);
 
         return filePath;
     }
