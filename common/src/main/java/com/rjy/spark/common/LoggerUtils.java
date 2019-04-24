@@ -1,5 +1,6 @@
 package com.rjy.spark.common;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -13,44 +14,37 @@ public class LoggerUtils {
     public static Logger getLogger(Class c) {
         Logger logger = Logger.getLogger(c);
 
-        setLogPropertyConfV2();
+        setBasicConfLog();
 
         return logger;
     }
 
-    // this must be a bug
-    private static void setLogPropertyConfV1() {
-        String s= LoggerUtils.class.getResource(Strings.EMPTY_STRING).toString();
-
-        Pattern p = Pattern.compile("common");
-
-        String confSubPath = "conf/log4j.properties";
-
-        PropertyConfigurator.configure(p.split(s)[0] + confSubPath);
-
+    private static void setBasicConfLog() {
+        BasicConfigurator.configure();
     }
+
 
     // this must be a bug
     private static void setLogPropertyConfV2() {
 
         String path = System.getProperty("user.dir");
 
-        String confSubPath = "/conf/log4j.properties";
+        String sysPathFilter= Utils.getSysPathFileter();
 
-        PropertyConfigurator.configure(path + confSubPath);
+        String confSubPath =sysPathFilter + "conf" + sysPathFilter + "log4j.properties";
+
+        String log4jPath = path + confSubPath;
+
+        System.out.println(log4jPath);
+
+        PropertyConfigurator.configure(log4jPath);
 
     }
 
 
-    public static void main(String[] args) {
-//        String s = LoggerUtils.class.getResource("").toString();
-
-//        Pattern p = Pattern.compile("common");
-
-//        String[] strings = p.split(s);
-
-//        System.out.println(System.getProperty("user.dir"));
-
+    public static void main(String[] args) throws Exception{
+        Logger logger = LoggerUtils.getLogger(LoggerUtils.class);
+        logger.info("test!!");
     }
 
 }

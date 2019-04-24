@@ -1,23 +1,37 @@
 ---
 actions:
-- desc: execute tpch cases
-  action: sql | batch
-  query: tpch
-  jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
-  treadmode: single | current
-  jobconf:
-    job.statement.beforeall: "create testdb; use testdb; show databases;"
-    job.statement.afterall: "drop database testdb cascade;"
-    job.perfilepersession: false | true
-    job.metricsmode: simple | rich
-    job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
-    job.generateresult: true | false
-    job.verifiedresult: true | false
-    job.verifiedpath: user/jirao/result/orginalresult.out
-    jdbc.current.time: 720
-    jdbc.current.client: '[ "user1": {"username": "test1", "password": "btd"},
-                          [ "user1": {"username": "test1", "password": "btd"},
-                          [ "user1": {"username": "test1", "password": "btd"},
-                          [ "user1": {"username": "test1", "password": "btd"},
-                          [ "user1": {"username": "test1", "password": "btd"},
-                          [ "user1": {"username": "test1", "password": "btd"}'
+  - desc: execute tpch cases
+    action: sql | batch
+    query: tpch
+    jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
+    treadmode: single | current
+    jobconf:
+      job.statement.beforeall: "create testdb; use testdb; show databases;"
+      job.statement.afterall: "drop database testdb cascade;"
+      job.perfilepersession: false | true
+      job.metricsmode: simple | rich
+      job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
+      job.generateresult: true | false
+      job.verifiedresult: true | false
+      job.verifiedpath: user/jirao/result/orginalresult.out
+      jdbc.current.time: 720
+      jdbc.current.client: '["user1": {"username": "test1", "password": "btd"},
+                             "user1": {"username": "test1", "password": "btd"}]'
+
+  - desc: execute tpch cases
+    action: sql | batch
+    query: tpcds
+    jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
+    treadmode: single | current
+    jobconf:
+      job.statement.beforeall: "create testdb; use testdb; show databases;"
+      job.statement.afterall: "drop database testdb cascade;"
+      job.perfilepersession: false | true
+      job.metricsmode: simple | rich
+      job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
+      job.generateresult: true | false
+      job.verifiedresult: true | false
+      job.verifiedpath: user/jirao/result/orginalresult.out
+      jdbc.current.time: 720
+      jdbc.current.client: '["user1": {"username": "test1", "password": "btd"},
+                             "user1": {"username": "test1", "password": "btd"}]'
