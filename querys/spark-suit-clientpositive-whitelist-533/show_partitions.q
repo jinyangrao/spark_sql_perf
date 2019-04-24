@@ -1,0 +1,5 @@
+SHOW PARTITIONS srcpart;
+SHOW PARTITIONS spark_suit_db.srcpart;
+SHOW PARTITIONS srcpart PARTITION(hr='11');
+SHOW PARTITIONS srcpart PARTITION(ds='2008-04-08');
+SHOW PARTITIONS srcpart PARTITION(ds='2008-04-08', hr='12');

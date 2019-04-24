@@ -4,7 +4,7 @@ actions:
     action: sql | batch
     query: tpch
     jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
-    treadmode: single | current
+    threadmode: single | current
     jobconf:
       job.statement.beforeall: "create testdb; use testdb; show databases;"
       job.statement.afterall: "drop database testdb cascade;"
@@ -15,8 +15,8 @@ actions:
       job.verifiedresult: true | false
       job.verifiedpath: user/jirao/result/orginalresult.out
       jdbc.current.time: 720
-      jdbc.current.client: '["user1": {"username": "test1", "password": "btd"},
-                             "user1": {"username": "test1", "password": "btd"}]'
+      jdbc.current.client: '[{"username": "test1", "password": "btd"},
+                             {"username": "test2", "password": "btd"}]'
 
   - desc: execute tpch cases
     action: sql | batch
@@ -33,5 +33,5 @@ actions:
       job.verifiedresult: true | false
       job.verifiedpath: user/jirao/result/orginalresult.out
       jdbc.current.time: 720
-      jdbc.current.client: '["user1": {"username": "test1", "password": "btd"},
-                             "user1": {"username": "test1", "password": "btd"}]'
+      jdbc.current.client: '[{"username": "test1", "password": "btd"},
+                             {"username": "test1", "password": "btd"}]'

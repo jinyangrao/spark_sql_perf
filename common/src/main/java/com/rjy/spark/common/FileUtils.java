@@ -20,6 +20,7 @@ public class FileUtils {
     }
 
     private static String getFilePathV1(String fileName) {
+
         String path = System.getProperty("user.dir");
 
         String filePath = path + "/conf/" + fileName;

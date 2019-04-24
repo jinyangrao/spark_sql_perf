@@ -3,15 +3,19 @@ package com.rjy.spark.common;
 public class EnumUtils {
 
     // enmu store here
-    public static enum Action {
+    public enum Action {
         SQL, BATCH;
     }
 
-    public static enum ThreadMode {
+    public enum ThreadMode {
         SINGLE, CURRENT;
     }
 
-    public static enum MetricsMode {
+    public enum MetricsMode {
         SIMPLE, RICH;
+    }
+
+    public enum BooleanBox {
+        TRUE, FALSE;
     }
 }

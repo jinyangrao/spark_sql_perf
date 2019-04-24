@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 public class LoggerUtils {
 
     public static Logger getLogger(Class c) {
+
         Logger logger = Logger.getLogger(c);
 
         setBasicConfLog();
@@ -43,7 +44,9 @@ public class LoggerUtils {
 
 
     public static void main(String[] args) throws Exception{
+
         Logger logger = LoggerUtils.getLogger(LoggerUtils.class);
+
         logger.info("test!!");
     }
 
