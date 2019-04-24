@@ -12,5 +12,18 @@ public class RunnableJobInstance {
 
     private List<Map<String, String>> currentUser;
 
+    /**
+     * this must concrute a Runable job for core
+     * */
+    public RunnableJobInstance(Job job) {
+        this.job = job;
+    }
+
+    public void initJob() {
+
+    }
+
+
+
 
 }
