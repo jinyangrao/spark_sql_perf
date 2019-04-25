@@ -53,4 +53,12 @@ public class Strings {
     public static String DEFAULT_JDBC_CURRENT_TIME_VAR = "47";
     public static String DEFAULT_JDBC_CURRENT_CLIENT_VAR = "";
 
+    /**
+     * others
+     * */
+    public static String SOURCE_DIR = "querys";
+    public static String CONF_DIR = "conf";
+    public static String USE_DIR = "user.dir";
+    public static String SPARK_JDBC_DRIVE = "org.apache.hive.jdbc.HiveDriver";
+
 }

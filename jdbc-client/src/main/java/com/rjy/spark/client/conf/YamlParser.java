@@ -33,7 +33,7 @@ public class YamlParser {
 
         Map properties = null;
 
-        File yamlFile = FileUtils.openFile(yamlName);
+        File yamlFile = FileUtils.openYamlFile(yamlName);
 
         try {
             FileInputStream fileInputStream = new FileInputStream(yamlFile);

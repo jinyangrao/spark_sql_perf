@@ -212,5 +212,6 @@ public class JobInstance extends Job {
 
             job.loadOrDefaultConf();
         }
+        System.out.println("test");
     }
 }

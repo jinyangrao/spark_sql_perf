@@ -38,4 +38,5 @@ public abstract class Job {
 
     public abstract void runJob();
 
+    public abstract String getQuery();
 }
