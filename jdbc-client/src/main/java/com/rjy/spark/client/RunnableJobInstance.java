@@ -1,15 +1,19 @@
 package com.rjy.spark.client;
 
+import com.google.common.collect.Ordering;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
+import com.rjy.spark.client.alphanum.AlphanumComparator;
 import com.rjy.spark.client.conf.YamlParser;
 import com.rjy.spark.common.FileUtils;
 import com.rjy.spark.common.Strings;
 import com.rjy.spark.common.Utils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.File;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class RunnableJobInstance<T extends Job> {
 
@@ -40,11 +44,22 @@ public class RunnableJobInstance<T extends Job> {
 
         initSqlFile();
 
+        sortSqlFileName();
+
     }
 
 
     /**
      * init sql file
+     * using regex match string：
+     * such as:
+     * test.hql
+     * test.q
+     * test.sql
+     * test.qqq
+     * test.aq
+     * test.999q
+     * can be matched
      * */
     public void initSqlFile() {
 
@@ -57,9 +72,30 @@ public class RunnableJobInstance<T extends Job> {
         File[] sqls = sqlFiles.listFiles();
 
         for(File sql: sqls) {
-            this.sqlFiles.add(sql.getAbsolutePath());
+
+            String sqlPath = sql.getName();
+
+            String sqlFileNameRegex = "^.+\\..*q.*$";
+
+            if(sqlPath.matches(sqlFileNameRegex)) {
+
+                this.sqlFiles.add(sql.getAbsolutePath());
+
+            }
+
         }
     }
+
+    /**
+     * sort sql file function: expect
+     * using alphanumComparator
+     * */
+    public void sortSqlFileName() {
+
+        Collections.sort(sqlFiles, new AlphanumComparator());
+
+    }
+
 
     /**
      * user class

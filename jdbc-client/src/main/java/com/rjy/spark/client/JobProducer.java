@@ -56,7 +56,7 @@ public class JobProducer {
 
         JobProducer jobProducer = new JobProducer("jdbc_work_flow.yml");
 
-        List<RunnableJobInstance> list = jobProducer.jobBuilder().produceJob();
+        List<RunnableJobInstance> jobList = jobProducer.jobBuilder().produceJob();
 
         System.out.println("");
 
