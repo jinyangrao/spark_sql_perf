@@ -1,6 +1,10 @@
 package com.rjy.spark.core.job;
 
+import com.rjy.spark.client.JobInstance;
+import com.rjy.spark.common.Strings;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class SQLStatement {
@@ -20,14 +24,21 @@ public class SQLStatement {
     /**
      * every class instance init the iterator.
      * */
-    public SQLStatement() {
+    public SQLStatement(JobInstance jobInstance) {
+
+        if (jobInstance.getAction().equals(Strings.DEFAULT_ACTION_VAR));
+
+    }
+
+//    public void initSQL
+
+    public void initSQLStatementItr() {
 
         beforeAllSQLItr = beforeAllSQL.iterator();
 
         realSQLItr = realSQL.iterator();
 
         afterAllSQLItr = afterAllSQL.iterator();
-
     }
 
     public boolean hasNextBefAllSQL() {

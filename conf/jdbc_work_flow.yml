@@ -1,36 +1,36 @@
 ---
 actions:
   - desc: execute tpch cases
-    action: sql | batch
+    action: sql
     query: tpch
     jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
-    threadmode: single | current
+    threadmode: single
     jobconf:
       job.statement.beforeall: "create testdb; use testdb; show databases;"
       job.statement.afterall: "drop database testdb cascade;"
-      job.perfilepersession: false | true
-      job.metricsmode: simple | rich
+      job.perfilepersession: false
+      job.metricsmode: simple
       job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
-      job.generateresult: true | false
-      job.verifiedresult: true | false
+      job.generateresult: true
+      job.verifiedresult: true
       job.verifiedpath: user/jirao/result/orginalresult.out
       jdbc.current.time: 720
       jdbc.current.client: '[{"username": "test1", "password": "btd"},
                              {"username": "test2", "password": "btd"}]'
 
   - desc: execute tpch cases
-    action: sql | batch
+    action: batch
     query: tpcds
     jdbcurl: "jdbc:hive2://btd-dev-2027700.lvs02.dev.ebayc3.com:10000"
-    treadmode: single | current
+    treadmode: current
     jobconf:
       job.statement.beforeall: "create testdb; use testdb; show databases;"
       job.statement.afterall: "drop database testdb cascade;"
-      job.perfilepersession: false | true
-      job.metricsmode: simple | rich
+      job.perfilepersession: true
+      job.metricsmode: rich
       job.metricsrestserver: "http://btd-dev-2027700.lvs02.dev.ebayc3.com:4040"
-      job.generateresult: true | false
-      job.verifiedresult: true | false
+      job.generateresult: false
+      job.verifiedresult: false
       job.verifiedpath: user/jirao/result/orginalresult.out
       jdbc.current.time: 720
       jdbc.current.client: '[{"username": "test1", "password": "btd"},

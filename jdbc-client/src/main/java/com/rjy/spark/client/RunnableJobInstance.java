@@ -38,6 +38,14 @@ public class RunnableJobInstance<T extends Job> {
         return job;
     }
 
+    public List<String> getSqlFiles() {
+        return sqlFiles;
+    }
+
+    public Map<String, String> getCurrentUser() {
+        return currentUser;
+    }
+
     public void initJob() {
 
         initUser();
